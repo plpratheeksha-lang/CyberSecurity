@@ -1,0 +1,263 @@
+/* ==========================================
+   CYBERSHIELD - PROFESSIONAL STYLE
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+/* ---------- NAVBAR ---------- */
+
+header {
+    background: #0b1f3a;
+    color: white;
+    min-height: 72px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #dce8f7;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* ==========================================
+   ANALYZER PAGE
+   ========================================== */
+
+.analyzer-page {
+    min-height: 100vh;
+    padding: 70px 7%;
+    background:
+        linear-gradient(135deg, #eef5ff, #f8fbff);
+}
+
+/* ---------- TITLE ---------- */
+
+.section-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 40px;
+}
+
+.section-heading p {
+    color: #1769aa;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.section-heading h1 {
+    font-size: 44px;
+    line-height: 1.15;
+    color: #10243e;
+    margin-bottom: 15px;
+}
+
+.section-heading span {
+    color: #647184;
+    font-size: 16px;
+}
+
+/* ==========================================
+   ANALYZER INPUT BOX
+   ========================================== */
+
+.analyzer-box {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid #dce5ef;
+    box-shadow: 0 15px 40px rgba(20,45,75,0.10);
+}
+
+.analyzer-box label {
+    display: block;
+    color: #172f4b;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.analyzer-box textarea {
+    width: 100%;
+    min-height: 180px;
+    padding: 18px;
+    border: 1px solid #cbd6e2;
+    border-radius: 12px;
+    resize: vertical;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #172033;
+    background: #fbfdff;
+}
+
+.analyzer-box textarea:focus {
+    border-color: #1769aa;
+    box-shadow: 0 0 0 4px rgba(23,105,170,0.10);
+}
+
+/* ==========================================
+   EXAMPLE BUTTONS
+   ========================================== */
+
+.example-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 18px 0 22px;
+}
+
+.example-buttons button {
+    border: 1px solid #cfe0ef;
+    background: #eef6ff;
+    color: #1769aa;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.example-buttons button:hover {
+    background: #dceeff;
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   MAIN BUTTONS
+   ========================================== */
+
+.analyze-button {
+    background: #1769aa;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: 0.2s;
+}
+
+.analyze-button:hover {
+    background: #0d527f;
+    transform: translateY(-2px);
+}
+
+.clear-button {
+    background: #edf1f5;
+    color: #33465d;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.clear-button:hover {
+    background: #dfe6ed;
+}
+
+/* ==========================================
+   RESULT AREA
+   ========================================== */
+
+.result-section {
+    max-width: 1100px;
+    margin: 45px auto 0;
+}
+
+/* ---------- RESULT HEADER ---------- */
+
+.result-header {
+    background: #0b1f3a;
+    color: white;
+    padding: 35px;
+    border-radius: 18px 18px 0 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.result-header .small-title {
+    color: #8fc7f5;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.result-header h2 {
+    font-size: 32px;
+}
+
+/* ---------- SCORE CIRCLE ---------- */
+
+.score-circle {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+
+    border: 8px solid #4fa3d1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.06);
+    flex-shrink: 0;
+}
+
+.score-circle span {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.score-circle small {
+    color: #b8c7d9;
+    font-size: 12px;
+}
+
+/* ==========================================
+   RESULT CARDS
+   ========================================== */
+
+.result-grid {
+    display: grid;

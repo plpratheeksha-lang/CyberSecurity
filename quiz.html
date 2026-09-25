@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberShield | Cyber Safety Quiz</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .quiz-page {
+            min-height: 100vh;
+            padding: 60px 7%;
+            background: linear-gradient(135deg, #eef5ff, #f8fbff);
+        }
+
+        .quiz-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .quiz-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .quiz-heading p {
+            color: #1769aa;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .quiz-heading h1 {
+            color: #10243e;
+            font-size: 40px;
+            margin: 10px 0;
+        }
+
+        .quiz-heading span {
+            color: #687588;
+        }
+
+        .quiz-card {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid #dce5ef;
+            box-shadow: 0 12px 35px rgba(20,45,75,0.09);
+        }
+
+        .question {
+            padding: 25px 0;
+            border-bottom: 1px solid #e4ebf2;
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+
+        .question h3 {
+            color: #18314d;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .question-number {
+            color: #1769aa;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .option {
+            display: block;
+            padding: 14px 16px;
+            margin: 10px 0;
+            background: #f7faff;
+            border: 1px solid #dce6f0;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #40546b;
+            transition: 0.2s;
+        }
+
+        .option:hover {
+            background: #edf5ff;
+            border-color: #1769aa;
+        }
+
+        .option input {
+            margin-right: 10px;
+            accent-color: #1769aa;
+        }
+
+        .submit-area {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #submitQuiz {
+            background: #1769aa;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #submitQuiz:hover {
+            background: #0d527f;
+        }
+
+        #quizResult {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .score-number {
+            font-size: 34px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .restart-button {
+            margin-top: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            color: #1769aa;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .tips-box {
+            margin-top: 35px;
+            padding: 25px;
+            background: #0b1f3a;
+            color: white;
+            border-radius: 16px;
+        }
+
+        .tips-box h2 {
+            margin-bottom: 15px;
+        }
+
+        .tips-box p {
+            color: #dceeff;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-page {
+                padding: 40px 5%;
+            }
+
+            .quiz-heading h1 {
+                font-size: 30px;
+            }
+
+            .quiz-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🛡️ CyberShield
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="analyzer.html">Analyzer</a>
+        <a href="digital-arrest.html">Digital Arrest</a>
+        <a href="app-safety.html">App Safety</a>
+        <a href="awareness.html">Awareness</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+<section class="quiz-page">
+
+<div class="quiz-container">
+
+    <div class="quiz-heading">
+
+        <p>CYBERSHIELD AWARENESS</p>
+
+        <h1>🧠 Cyber Safety Quiz</h1>
+
+        <span>
+            Test your knowledge about phishing,
+            digital arrest scams and malicious applications.
+        </span>
+
+    </div>
+
+
+    <div class="quiz-card">
+
+        <!-- QUESTION 1 -->
+
+        <div class="question">
+
+            <div class="question-number">
+                QUESTION 1 OF 5
+            </div>
+
+            <h3>
+                A message says your bank account will be
+                blocked unless you click a link immediately.
+                What should you do?
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q1" value="wrong">
+                Click the link immediately.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="correct">
+                Verify the message through an official bank channel.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1" value="wrong">
+                Share your OTP with the sender.
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 2 -->
+
+        <div class="question">
+
+            <div class="question-number">
+                QUESTION 2 OF 5
+            </div>
+
+            <h3>
+                A caller claims to be a police officer and
+                demands money to avoid arrest. What is the
+                safest action?
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q2" value="correct">
+                End the call and independently verify the claim.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="wrong">
+                Transfer the requested money.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q2" value="wrong">
+                Give the caller your banking password.
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 3 -->
+
+        <div class="question">
+
+            <div class="question-number">
+                QUESTION 3 OF 5
+            </div>
+
+            <h3>
+                An unknown application requests access to your
+                SMS, contacts and microphone even though those
+                permissions are not needed. What should you do?
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q3" value="correct">
+                Review the permissions and avoid granting unnecessary access.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="wrong">
+                Allow every permission without checking.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q3" value="wrong">
+                Share the application with others.
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 4 -->
+
+        <div class="question">
+
+            <div class="question-number">
+                QUESTION 4 OF 5
+            </div>
+
+            <h3>
+                Which information should you normally never
+                share through an unexpected message or call?
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q4" value="correct">
+                OTP, passwords and banking credentials.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="wrong">
+                Public information about a product.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q4" value="wrong">
+                General information from a public website.
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 5 -->
+
+        <div class="question">
+
+            <div class="question-number">
+                QUESTION 5 OF 5
+            </div>
+
+            <h3>
+                Which is a common warning sign of a phishing website?
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="q5" value="correct">
+                A suspicious or deceptive URL that does not match
+                the expected official website.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="wrong">
+                A website address you independently verified
+                through an official source.
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q5" value="wrong">
+                A normal public information page.
+            </label>
+
+        </div>
+
+
+        <div class="submit-area">
+
+            <button id="submitQuiz">
+                Submit Quiz
+            </button>
+
+        </div>
+
+
+        <div id="quizResult">
+
+            <div class="score-number" id="scoreNumber"></div>
+
+            <div id="scoreMessage"></div>
+
+            <button class="restart-button" id="restartQuiz">
+                Try Again
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="tips-box">
+
+        <h2>🛡️ Quick Cyber Safety Tips</h2>
+
+        <p>
+            Never share OTPs, passwords or banking credentials
+            with unexpected callers or messages. Be cautious
+            with urgent requests, suspicious links and
+            applications asking for unnecessary permissions.
+            Always verify information through official sources.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div>
+        🛡️ <strong>CyberShield</strong>
+    </div>
+
+    <p>
+        Cyber Security Awareness Platform
+    </p>
+
+    <p>
+        Educational Project • PO5 • PO6 • SDG 16
+    </p>
+
+</footer>
+
+
+<script>
+
+const submitButton = document.getElementById("submitQuiz");
+
+const resultBox = document.getElementById("quizResult");
+
+const scoreNumber = document.getElementById("scoreNumber");
+
+const scoreMessage = document.getElementById("scoreMessage");
+
+const restartButton = document.getElementById("restartQuiz");
+
+
+submitButton.addEventListener("click", function () {
+
+    const questions = ["q1", "q2", "q3", "q4", "q5"];
+
+    let score = 0;
+    let answered = 0;
+
+    questions.forEach(function(question) {
+
+        const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+
+        if (selected) {
+
+            answered++;
+
+            if (selected.value === "correct") {
+                score++;
+            }
+
+        }
+
+    });
+
+
+    if (answered < 5) {
+
+        resultBox.style.display = "block";
+
+        resultBox.style.background = "#fff7df";
+
+        resultBox.style.color = "#725b1d";
+
+        scoreNumber.textContent = "⚠️";
+
+        scoreMessage.textContent =
+            "Please answer all 5 questions before submitting.";
+
+        return;
+    }
+
+
+    resultBox.style.display = "block";
+
+    scoreNumber.textContent =
+        "Score: " + score + " / 5";
+
+
+    if (score === 5) {
+
+        resultBox.style.background = "#eaf8ef";
+
+        resultBox.style.color = "#24633a";
+
+        scoreMessage.textContent =
+            "Excellent! You have strong cyber-safety awareness.";
+
+    }
+
+    else if (score >= 3) {
+
+        resultBox.style.background = "#eef5ff";
+
+        resultBox.style.color = "#24557c";
+
+        scoreMessage.textContent =
+            "Good work! Review the safety tips to improve your awareness.";
+
+    }
+
+    else {
+
+        resultBox.style.background = "#fff1f0";
+
+        resultBox.style.color = "#8a3430";
+
+        scoreMessage.textContent =
+            "Keep learning! Review the CyberShield awareness sections.";
+
+    }
+
+
+    resultBox.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+});
+
+
+restartButton.addEventListener("click", function () {
+
+    const answers = document.querySelectorAll(
+        'input[type="radio"]'
+    );
+
+    answers.forEach(function(answer) {
+        answer.checked = false;
+    });
+
+    resultBox.style.display = "none";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+</script>
+
+</body>
+
+</html>
