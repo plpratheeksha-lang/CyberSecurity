@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CyberShield | Digital Arrest Awareness</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        🛡️ CyberShield
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="analyzer.html">Analyzer</a>
+
+        <a href="digital-arrest.html">
+            Digital Arrest
+        </a>
+
+        <a href="app-safety.html">
+            App Safety
+        </a>
+
+        <a href="awareness.html">
+            Awareness
+        </a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+
+<!-- ==========================================
+     INTRODUCTION
+     ========================================== -->
+
+<section class="analyzer-page">
+
+    <div class="section-heading">
+
+        <p>
+            DIGITAL ARREST AWARENESS
+        </p>
+
+        <h1>
+            Recognize the Warning Signs
+        </h1>
+
+        <span>
+            Learn how scammers may use fear, urgency and
+            impersonation to pressure people into giving
+            money or sensitive information.
+        </span>
+
+    </div>
+
+
+
+    <!-- WARNING CARD -->
+
+    <div class="analyzer-box">
+
+        <div class="feature-icon">
+            🚨
+        </div>
+
+        <h2>
+            What is a Digital Arrest Scam?
+        </h2>
+
+        <p style="margin-top:15px; color:#5f6e80;">
+
+            A scammer may falsely claim to be a police officer,
+            government official or another authority. They may
+            threaten the victim with arrest or legal action and
+            demand money or sensitive information.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- WARNING SIGNS -->
+
+    <div class="section-heading" style="margin-top:70px;">
+
+        <p>
+            WARNING SIGNS
+        </p>
+
+        <h2>
+            Watch for These Red Flags
+        </h2>
+
+    </div>
+
+
+
+    <div class="feature-grid">
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📞
+            </div>
+
+            <h3>
+                Fake Authority
+            </h3>
+
+            <p>
+                Someone claims to be from the police,
+                court, government or another authority
+                without reliable verification.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ⚠️
+            </div>
+
+            <h3>
+                Immediate Threat
+            </h3>
+
+            <p>
+                You are told that you will be arrested
+                or face legal action unless you act
+                immediately.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                💰
+            </div>
+
+            <h3>
+                Money Demand
+            </h3>
+
+            <p>
+                The caller asks you to transfer money,
+                pay a fine or deposit money to avoid
+                an alleged legal problem.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔐
+            </div>
+
+            <h3>
+                Sensitive Information
+            </h3>
+
+            <p>
+                You are pressured to reveal OTPs,
+                passwords, banking information or
+                identity details.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         SIMULATION
+         ========================================== -->
+
+    <div class="section-heading" style="margin-top:90px;">
+
+        <p>
+            AWARENESS SIMULATION
+        </p>
+
+        <h2>
+            What Would You Do?
+        </h2>
+
+        <span>
+            Read the situation and choose the safest response.
+        </span>
+
+    </div>
+
+
+
+    <div class="analyzer-box">
+
+        <div
+            style="
+            background:#fff4f4;
+            border-left:5px solid #c0392b;
+            padding:20px;
+            border-radius:8px;
+            margin-bottom:25px;
+            "
+        >
+
+            <strong>
+                📞 Incoming Video Call
+            </strong>
+
+            <p style="margin-top:12px; color:#5f6e80;">
+
+                "We are calling from Cyber Crime Police.
+                Your identity has been linked to a serious
+                financial investigation. Your arrest order
+                is being prepared. Stay on this video call
+                and transfer money immediately to prove
+                that you are innocent."
+
+            </p>
+
+        </div>
+
+
+
+        <h3 style="margin-bottom:18px;">
+            What should you do?
+        </h3>
+
+
+
+        <div
+            style="
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+            "
+        >
+
+            <button
+                class="example-buttons"
+                onclick="showArrestAnswer('wrong')"
+                style="border:1px solid #ddd; background:white; text-align:left;"
+            >
+                A. Transfer the money immediately.
+            </button>
+
+
+            <button
+                class="example-buttons"
+                onclick="showArrestAnswer('correct')"
+                style="border:1px solid #ddd; background:white; text-align:left;"
+            >
+                B. End the call and independently verify the claim.
+            </button>
+
+
+            <button
+                class="example-buttons"
+                onclick="showArrestAnswer('wrong')"
+                style="border:1px solid #ddd; background:white; text-align:left;"
+            >
+                C. Share your OTP to prove your identity.
+            </button>
+
+        </div>
+
+
+
+        <div
+            id="arrestAnswer"
+            style="
+            display:none;
+            margin-top:25px;
+            padding:20px;
+            border-radius:10px;
+            background:#eef8f1;
+            color:#245c38;
+            "
+        >
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         SAFETY STEPS
+         ========================================== -->
+
+    <div class="section-heading" style="margin-top:90px;">
+
+        <p>
+            SAFETY CHECKLIST
+        </p>
+
+        <h2>
+            If You Receive a Suspicious Call
+        </h2>
+
+    </div>
+
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                Stay Calm
+            </h3>
+
+            <p>
+                Do not make rushed decisions because
+                someone is threatening or pressuring you.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                End the Call
+            </h3>
+
+            <p>
+                Do not remain on a suspicious video or
+                phone call under pressure.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                Verify Independently
+            </h3>
+
+            <p>
+                Use an official contact method rather than
+                the number or link supplied by the caller.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <h3>
+                Don't Transfer Money
+            </h3>
+
+            <p>
+                Do not send money or reveal OTPs,
+                passwords or banking information.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+    <div>
+        🛡️ <strong>CyberShield</strong>
+    </div>
+
+    <p>
+        Cyber Security Awareness Platform
+    </p>
+
+    <p>
+        Educational Project • PO5 • PO6 • SDG 16
+    </p>
+
+</footer>
+
+
+
+<script>
+
+function showArrestAnswer(answer) {
+
+    const box =
+        document.getElementById("arrestAnswer");
+
+
+    box.style.display = "block";
+
+
+    if (answer === "correct") {
+
+        box.innerHTML =
+            "<strong>✓ Correct!</strong><br><br>" +
+            "End the suspicious call and independently " +
+            "verify the claim using an official channel. " +
+            "Do not transfer money or share OTPs or passwords.";
+
+    } else {
+
+        box.innerHTML =
+            "<strong>⚠️ Unsafe response</strong><br><br>" +
+            "Do not transfer money or share OTPs or " +
+            "passwords because of a threatening call. " +
+            "End the call and independently verify the claim.";
+
+        box.style.background = "#fff4e6";
+        box.style.color = "#75551d";
+    }
+}
+
+</script>
+
+
+</body>
+
+</html>

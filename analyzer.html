@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberShield | Risk Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f8fc;
+            color: #172b45;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            background: #0b1f3a;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #62c7ff;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 35px;
+            background: linear-gradient(135deg, #eaf5ff, #ffffff);
+        }
+
+        .hero small {
+            color: #1477ad;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 15px auto;
+            max-width: 800px;
+            color: #10243e;
+        }
+
+        .hero p {
+            color: #65758a;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* MAIN */
+
+        .container {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .analyzer-card {
+            background: white;
+            border: 1px solid #dce6ef;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(20, 45, 75, 0.08);
+        }
+
+        .analyzer-card h2 {
+            margin-top: 0;
+            color: #18314d;
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 8px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 170px;
+            padding: 16px;
+            border: 1px solid #cbd8e5;
+            border-radius: 10px;
+            resize: vertical;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #1477ad;
+            box-shadow: 0 0 0 3px rgba(20, 119, 173, 0.10);
+        }
+
+        /* EXAMPLES */
+
+        .examples {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .example-button {
+            border: 1px solid #cbdce8;
+            background: #f3f8fc;
+            color: #24516e;
+            padding: 9px 13px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .example-button:hover {
+            background: #e5f3fb;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .analyze-button,
+        .clear-button {
+            border: none;
+            padding: 13px 22px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .analyze-button {
+            background: #1477ad;
+            color: white;
+        }
+
+        .analyze-button:hover {
+            background: #0d527f;
+        }
+
+        .clear-button {
+            background: #edf2f6;
+            color: #334e68;
+        }
+
+        /* RESULT */
+
+        #result {
+            display: none;
+            margin-top: 30px;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid #dce6ef;
+            background: #f9fbfd;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .score {
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        .risk-label {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .high {
+            color: #b42318;
+            background: #ffe5e5;
+        }
+
+        .medium {
+            color: #9a6700;
+            background: #fff2d6;
+        }
+
+        .safe {
+            color: #207044;
+            background: #e3f7e9;
+        }
+
+        .reasons {
+            margin-top: 25px;
+        }
+
+        .reasons li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .advice {
+            margin-top: 20px;
+            padding: 18px;
+            background: #edf7ff;
+            border-left: 5px solid #1477ad;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        .dashboard-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 11px 17px;
+            background: #0b1f3a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 70px;
+            background: #08182c;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer p {
+            color: #aebfd0;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .analyzer-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<header>
+
+    <div class="logo">
+        🛡️ CyberShield
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="analyzer.html">Analyzer</a>
+
+        <a href="digital-arrest.html">Digital Arrest</a>
+
+        <a href="app-safety.html">App Safety</a>
+
+        <a href="awareness.html">Awareness</a>
+
+        <a href="dashboard.html">Dashboard</a>
+
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <small>CYBER RISK ANALYZER</small>
+
+    <h1>
+        Check a Suspicious Message or Link
+    </h1>
+
+    <p>
+        Enter text, an SMS, email content or a URL.
+        CyberShield checks common phishing, scam and
+        suspicious-link indicators.
+    </p>
+
+</section>
+
+
+<!-- ANALYZER -->
+
+<main class="container">
+
+    <div class="analyzer-card">
+
+        <h2>
+            🔍 Suspicious Content Analyzer
+        </h2>
+
+        <p>
+            Paste the message or link you want to examine.
+        </p>
+
+
+        <label for="message">
+            Suspicious Text / URL
+        </label>
+
+        <textarea
+            id="message"
+            placeholder="Example: Your account will be blocked. Verify your OTP immediately..."
+        ></textarea>
+
+
+        <!-- EXAMPLES -->
+
+        <div class="examples">
+
+            <button
+                class="example-button"
+                onclick="phishingExample()"
+            >
+                🎣 Try Phishing Example
+            </button>
+
+            <button
+                class="example-button"
+                onclick="digitalArrestExample()"
+            >
+                🚨 Try Digital Arrest Example
+            </button>
+
+            <button
+                class="example-button"
+                onclick="normalExample()"
+            >
+                ✅ Try Normal Example
+            </button>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+            <button
+                class="analyze-button"
+                onclick="analyzeRisk()"
+            >
+                🔍 Analyze Risk
+            </button>
+
+            <button
+                class="clear-button"
+                onclick="clearAnalyzer()"
+            >
+                Clear
+            </button>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div id="result">
+
+            <div class="result-header">
+
+                <div>
+
+                    <h2>
+                        Analysis Result
+                    </h2>
+
+                    <div
+                        id="riskLabel"
+                        class="risk-label"
+                    >
+                        Safe
+                    </div>
+
+                </div>
+
+                <div
+                    id="score"
+                    class="score"
+                >
+                    0/100
+                </div>
+
+            </div>
+
+
+            <div class="reasons">
+
+                <h3>
+                    ⚠️ Detected Indicators
+                </h3>
+
+                <ul id="reasonList"></ul>
+
+            </div>
+
+
+            <div class="advice">
+
+                <strong>🛡️ Safety Advice</strong>
+
+                <p id="adviceText"></p>
+
+            </div>
+
+
+            <a
+                href="dashboard.html"
+                class="dashboard-link"
+            >
+                📊 View Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <strong>🛡️ CyberShield</strong>
+
+    <p>
+        Cyber Security Awareness Platform
+    </p>
+
+    <p>
+        Educational Project • PO5 • PO6 • SDG 16
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   EXAMPLE MESSAGES
+========================================= */
+
+function phishingExample() {
+
+    document.getElementById("message").value =
+        "URGENT! Your bank account will be blocked today. Click http://secure-bank-login.example.com and verify your OTP immediately.";
+
+}
+
+
+function digitalArrestExample() {
+
+    document.getElementById("message").value =
+        "This is a police officer. Your Aadhaar is linked to a criminal case. Stay on video call and transfer money immediately to avoid digital arrest.";
+
+}
+
+
+function normalExample() {
+
+    document.getElementById("message").value =
+        "Your college event is scheduled for tomorrow at 10 AM. Please bring your student ID card.";
+
+}
+
+
+/* =========================================
+   RISK ANALYZER
+========================================= */
+
+function analyzeRisk() {
+
+    const message =
+        document.getElementById("message").value.trim();
+
+
+    if (message === "") {
+
+        alert("Please enter a message or URL first.");
+
+        return;
+
+    }
+
+
+    const text = message.toLowerCase();
+
+    let score = 0;
+
+    let reasons = [];
+
+
+    /* PHISHING KEYWORDS */
+
+    const phishingWords = [
+        "urgent",
+        "verify",
+        "verification",
+        "otp",
+        "password",
+        "account blocked",
+        "account suspended",
+        "click here",
+        "login",
+        "confirm your account",
+        "limited time"
+    ];
+
+
+    phishingWords.forEach(function(word) {
+
+        if (text.includes(word)) {
+
+            score += 7;
+
+            reasons.push(
+                "Suspicious phishing indicator: \"" +
+                word +
+                "\""
+            );
+
+        }
+
+    });
+
+
+    /* MONEY / PAYMENT */
+
+    const moneyWords = [
+        "transfer money",
+        "send money",
+        "payment",
+        "upi",
+        "bank account",
+        "refund",
+        "prize",
+        "cash reward"
+    ];
+
+
+    moneyWords.forEach(function(word) {
+
+        if (text.includes(word)) {
+
+            score += 8;
+
+            reasons.push(
+                "Financial or payment-related request detected."
+            );
+
+        }
+
+    });
+
+
+    /* DIGITAL ARREST */
+
+    const arrestWords = [
+        "digital arrest",
+        "police officer",
+        "police",
+        "criminal case",
+        "aadhaar",
+        "stay on video call",
+        "arrest",
+        "court case",
+        "legal action"
+    ];
+
+
+    arrestWords.forEach(function(word) {
+
+        if (text.includes(word)) {
+
+            score += 12;
+
+            reasons.push(
+                "Possible impersonation or digital-arrest scam indicator detected."
+            );
+
+        }
+
+    });
+
+
+    /* SUSPICIOUS URL */
+
+    if (
+        text.includes("http://") ||
+        text.includes("https://")
+    ) {
+
+        score += 10;
+
+        reasons.push(
+            "A URL was detected. Verify the website before opening it."
+        );
+
+    }
+
+
+    /* SHORTENED URL */
+
+    const shortenedURLs = [
+        "bit.ly",
+        "tinyurl",
+        "t.co",
+        "goo.gl",
+        "shorturl"
+    ];
+
+
+    shortenedURLs.forEach(function(word) {
+
+        if (text.includes(word)) {
+
+            score += 15;
+
+            reasons.push(
+                "URL shortening service detected."
+            );
+
+        }
+
+    });
+
+
+    /* SUSPICIOUS DOMAIN TERMS */
+
+    const domainWords = [
+        "login-",
+        "verify-",
+        "secure-",
+        "-login",
+        "-verify",
+        "freegift",
+        "reward"
+    ];
+
+
+    domainWords.forEach(function(word) {
+
+        if (text.includes(word)) {
+
+            score += 8;
+
+            reasons.push(
+                "Potentially deceptive URL pattern detected."
+            );
+
+        }
+
+    });
+
+
+    /* THREAT / FEAR */
+
+    const threatWords = [
+        "arrest",
+        "blocked",
+        "suspended",
+        "penalty",
+        "fine",
+        "legal action",
+        "police",
+        "immediately",
+        "warning"
+    ];
+
+
+    threatWords.forEach(function(word) {
+
+        if (text.includes(word)) {
+
+            score += 5;
+
+            reasons.push(
+                "Fear or urgency-based language detected."
+            );
+
+        }
+
+    });
+
+
+    /* LIMIT SCORE */
+
+    if (score > 100) {
+
+        score = 100;
+
+    }
+
+
+    /* REMOVE DUPLICATE REASONS */
+
+    reasons = [...new Set(reasons)];
+
+
+    /* RISK LEVEL */
+
+    let risk = "";
+
+    let advice = "";
+
+
+    if (score >= 60) {
+
+        risk = "High";
+
+        advice =
+            "Do not click links, share OTPs, passwords or banking information. Verify the message using an official source.";
+
+    }
+
+    else if (score >= 30) {
+
+        risk = "Medium";
+
+        advice =
+            "Be cautious. Verify the sender, website and request before taking any action.";
+
+    }
+
+    else {
+
+        risk = "Safe";
+
+        advice =
+            "No major predefined warning indicators were detected. Still verify unexpected messages before trusting them.";
+
+    }
+
+
+    /* IF NO REASONS */
+
+    if (reasons.length === 0) {
+
+        reasons.push(
+            "No major predefined suspicious indicators detected."
+        );
+
+    }
+
+
+    /* SHOW RESULT */
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("score").textContent =
+        score + "/100";
+
+
+    const riskLabel =
+        document.getElementById("riskLabel");
+
+
+    riskLabel.textContent =
+        risk + " Risk";
+
+
+    riskLabel.className =
+        "risk-label " +
+        risk.toLowerCase();
+
+
+    document.getElementById("adviceText").textContent =
+        advice;
+
+
+    const reasonList =
+        document.getElementById("reasonList");
+
+
+    reasonList.innerHTML = "";
+
+
+    reasons.forEach(function(reason) {
+
+        const li =
+            document.createElement("li");
+
+        li.textContent = reason;
+
+        reasonList.appendChild(li);
+
+    });
+
+
+    /* SAVE TO DASHBOARD */
+
+    saveAnalysis(
+        score,
+        risk,
+        reasons
+    );
+
+}
+
+
+/* =========================================
+   SAVE ANALYSIS TO LOCAL STORAGE
+========================================= */
+
+function saveAnalysis(score, risk, reasons) {
+
+    let history =
+        JSON.parse(
+            localStorage.getItem("cyberShieldHistory") || "[]"
+        );
+
+
+    const message =
+        document.getElementById("message").value;
+
+
+    const now =
+        new Date();
+
+
+    const record = {
+
+        title:
+            message.length > 55
+                ? message.substring(0, 55) + "..."
+                : message,
+
+        risk: risk,
+
+        score: score,
+
+        time:
+            now.toLocaleString(),
+
+        reasons:
+            reasons
+
+    };
+
+
+    history.push(record);
+
+
+    /* Keep latest 50 records */
+
+    if (history.length > 50) {
+
+        history =
+            history.slice(-50);
+
+    }
+
+
+    localStorage.setItem(
+        "cyberShieldHistory",
+        JSON.stringify(history)
+    );
+
+}
+
+
+/* =========================================
+   CLEAR
+========================================= */
+
+function clearAnalyzer() {
+
+    document.getElementById("message").value = "";
+
+    document.getElementById("result").style.display =
+        "none";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

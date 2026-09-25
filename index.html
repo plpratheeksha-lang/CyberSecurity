@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberShield | Cyber Security Awareness Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f8fc;
+            color: #172b45;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #0b1f3a;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #62c7ff;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            padding: 85px 7%;
+            background: linear-gradient(135deg, #eaf5ff, #ffffff);
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            color: #1477ad;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            line-height: 1.1;
+            margin: 0 0 20px;
+            color: #10243e;
+        }
+
+        .hero h1 span {
+            color: #1477ad;
+        }
+
+        .hero p {
+            color: #607086;
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 650px;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .primary-button,
+        .secondary-button {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .primary-button {
+            background: #1477ad;
+            color: white;
+        }
+
+        .primary-button:hover {
+            background: #0d527f;
+        }
+
+        .secondary-button {
+            background: white;
+            color: #1477ad;
+            border: 1px solid #b9d4e8;
+        }
+
+        .secondary-button:hover {
+            background: #edf7ff;
+        }
+
+
+        /* HERO SECURITY CARD */
+
+        .security-card {
+            background: #0b1f3a;
+            color: white;
+            border-radius: 22px;
+            padding: 35px;
+            box-shadow: 0 18px 45px rgba(20, 45, 75, 0.16);
+        }
+
+        .shield {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .security-card h2 {
+            margin: 0 0 12px;
+        }
+
+        .security-card p {
+            color: #cbdff1;
+            font-size: 15px;
+        }
+
+        .security-status {
+            margin-top: 25px;
+            padding: 14px;
+            border-radius: 9px;
+            background: rgba(255,255,255,0.08);
+            color: #bce8ff;
+        }
+
+
+        /* FEATURES */
+
+        .features {
+            padding: 75px 7%;
+            background: #ffffff;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading p {
+            color: #1477ad;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        .section-heading h2 {
+            font-size: 35px;
+            margin: 10px 0;
+            color: #10243e;
+        }
+
+        .section-heading span {
+            color: #6a7889;
+            line-height: 1.6;
+        }
+
+
+        .feature-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            background: #f9fbfd;
+            border: 1px solid #dce6ef;
+            border-radius: 17px;
+            padding: 30px;
+            transition: 0.25s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(20,45,75,0.10);
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #18314d;
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #687588;
+            line-height: 1.6;
+            font-size: 14px;
+            min-height: 70px;
+        }
+
+        .feature-button {
+            display: inline-block;
+            margin-top: 12px;
+            color: #1477ad;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        /* SECONDARY FEATURES */
+
+        .tools {
+            padding: 75px 7%;
+            background: #eef5fb;
+        }
+
+        .tool-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 28px;
+            border-radius: 15px;
+            border: 1px solid #dce6ef;
+        }
+
+        .tool-card h3 {
+            color: #18314d;
+        }
+
+        .tool-card p {
+            color: #687588;
+            line-height: 1.6;
+        }
+
+
+        /* PROJECT PURPOSE */
+
+        .purpose {
+            padding: 70px 7%;
+            background: white;
+        }
+
+        .purpose-box {
+            max-width: 1100px;
+            margin: auto;
+            background: linear-gradient(135deg, #0b1f3a, #123d62);
+            color: white;
+            padding: 45px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .purpose-box h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .purpose-box p {
+            max-width: 800px;
+            margin: auto;
+            color: #dceeff;
+            line-height: 1.7;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #08182c;
+            color: white;
+            text-align: center;
+            padding: 30px 7%;
+        }
+
+        footer p {
+            color: #aebfd0;
+            margin: 8px 0;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            header {
+                flex-direction: column;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid,
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            nav {
+                gap: 12px;
+            }
+
+            .hero {
+                padding: 60px 5%;
+            }
+
+            .features,
+            .tools,
+            .purpose {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        🛡️ CyberShield
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="analyzer.html">Analyzer</a>
+
+        <a href="digital-arrest.html">Digital Arrest</a>
+
+        <a href="app-safety.html">App Safety</a>
+
+        <a href="awareness.html">Awareness</a>
+
+        <a href="dashboard.html">Dashboard</a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div>
+
+            <div class="hero-tag">
+                CYBER SECURITY AWARENESS PLATFORM
+            </div>
+
+            <h1>
+                Detect Suspicious
+                <span>Digital Threats</span>
+                Before They Harm You
+            </h1>
+
+            <p>
+                CyberShield helps users identify suspicious
+                messages, deceptive links, digital arrest scams
+                and risky application permissions through simple
+                awareness and risk-analysis tools.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="analyzer.html"
+                    class="primary-button"
+                >
+                    🔍 Analyze a Threat
+                </a>
+
+                <a
+                    href="awareness.html"
+                    class="secondary-button"
+                >
+                    📚 Learn Cyber Safety
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="security-card">
+
+            <div class="shield">
+                🛡️
+            </div>
+
+            <h2>
+                Stay Alert. Stay Secure.
+            </h2>
+
+            <p>
+                Understand warning signs before interacting
+                with suspicious digital content.
+            </p>
+
+            <div class="security-status">
+                ✓ Phishing Detection<br>
+                ✓ Scam Pattern Analysis<br>
+                ✓ URL Risk Analysis<br>
+                ✓ Application Permission Awareness
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- MAIN TOOLS -->
+
+<section class="features">
+
+    <div class="section-heading">
+
+        <p>
+            SECURITY TOOLS
+        </p>
+
+        <h2>
+            Explore the Platform
+        </h2>
+
+        <span>
+            Analyze threats, understand risks and improve
+            your cyber safety awareness.
+        </span>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <!-- ANALYZER -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔍
+            </div>
+
+            <h3>
+                Suspicious Link Analyzer
+            </h3>
+
+            <p>
+                Analyze suspicious text or a URL and receive
+                a risk score based on predefined security
+                indicators.
+            </p>
+
+            <a
+                href="analyzer.html"
+                class="feature-button"
+            >
+                Analyze Now →
+            </a>
+
+        </div>
+
+
+
+        <!-- DIGITAL ARREST -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🚨
+            </div>
+
+            <h3>
+                Digital Arrest Awareness
+            </h3>
+
+            <p>
+                Learn to recognize warning signs associated
+                with digital-arrest and impersonation scams.
+            </p>
+
+            <a
+                href="digital-arrest.html"
+                class="feature-button"
+            >
+                Learn More →
+            </a>
+
+        </div>
+
+
+
+        <!-- APP SAFETY -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📱
+            </div>
+
+            <h3>
+                App Safety Checker
+            </h3>
+
+            <p>
+                Review sensitive application permissions and
+                understand potential security risks.
+            </p>
+
+            <a
+                href="app-safety.html"
+                class="feature-button"
+            >
+                Check App →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- EDUCATION TOOLS -->
+
+<section class="tools">
+
+    <div class="section-heading">
+
+        <p>
+            LEARN & TEST
+        </p>
+
+        <h2>
+            Build Cyber Awareness
+        </h2>
+
+        <span>
+            Learn safe online practices and test your
+            understanding of common cyber threats.
+        </span>
+
+    </div>
+
+
+    <div class="tool-grid">
+
+
+        <!-- QUIZ -->
+
+        <div class="tool-card">
+
+            <div class="feature-icon">
+                🧠
+            </div>
+
+            <h3>
+                Cyber Awareness Quiz
+            </h3>
+
+            <p>
+                Test your knowledge about phishing,
+                digital arrest scams and malicious applications.
+            </p>
+
+            <a
+                href="quiz.html"
+                class="feature-button"
+            >
+                Take Quiz →
+            </a>
+
+        </div>
+
+
+
+        <!-- AWARENESS -->
+
+        <div class="tool-card">
+
+            <div class="feature-icon">
+                📚
+            </div>
+
+            <h3>
+                Security Education
+            </h3>
+
+            <p>
+                Learn practical safety tips for passwords,
+                online payments, applications and browsing.
+            </p>
+
+            <a
+                href="awareness.html"
+                class="feature-button"
+            >
+                Learn Safety →
+            </a>
+
+        </div>
+
+
+
+        <!-- DASHBOARD -->
+
+        <div class="tool-card">
+
+            <div class="feature-icon">
+                📊
+            </div>
+
+            <h3>
+                Risk Monitoring
+            </h3>
+
+            <p>
+                Future versions can store analysis history,
+                risk trends and user awareness results.
+            </p>
+
+            <a
+                href="dashboard.html"
+                class="feature-button"
+            >
+                View Dashboard →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PROJECT PURPOSE -->
+
+<section class="purpose">
+
+    <div class="purpose-box">
+
+        <h2>
+            🎯 Project Purpose
+        </h2>
+
+        <p>
+            CyberShield is designed as an educational
+            cybersecurity awareness platform. It demonstrates
+            how predefined phishing patterns, suspicious URLs,
+            scam indicators and application permissions can
+            be used to provide users with understandable
+            security warnings.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        🛡️ <strong>CyberShield</strong>
+    </div>
+
+    <p>
+        Cyber Security Awareness Platform
+    </p>
+
+    <p>
+        Educational Project • PO5 • PO6 • SDG 16
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

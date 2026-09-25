@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberShield | App Safety</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .app-page {
+            min-height: 100vh;
+            padding: 60px 7%;
+            background: linear-gradient(135deg, #eef5ff, #f8fbff);
+        }
+
+        .app-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .app-box {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid #dce5ef;
+            box-shadow: 0 15px 40px rgba(20,45,75,0.10);
+        }
+
+        .app-box h2 {
+            color: #10243e;
+            margin-bottom: 25px;
+        }
+
+        .app-label {
+            display: block;
+            font-weight: bold;
+            color: #18314d;
+            margin-bottom: 10px;
+        }
+
+        #appName {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #cbd6e2;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            margin-bottom: 30px;
+        }
+
+        #appName:focus {
+            border-color: #1769aa;
+        }
+
+        .permission-title {
+            color: #18314d;
+            margin-bottom: 15px;
+        }
+
+        .permission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .permission-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 17px;
+            background: #f7faff;
+            border: 1px solid #dce6f0;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #30445c;
+        }
+
+        .permission-card:hover {
+            border-color: #1769aa;
+            background: #edf5ff;
+        }
+
+        .permission-card input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .permission-icon {
+            font-size: 21px;
+        }
+
+        .button-area {
+            margin-top: 25px;
+        }
+
+        #checkButton {
+            background: #1769aa;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #checkButton:hover {
+            background: #0d527f;
+        }
+
+        #clearButton {
+            background: #edf1f5;
+            color: #33465d;
+            border: none;
+            padding: 14px 22px;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        /* RESULT */
+
+        #result {
+            display: none;
+            margin-top: 35px;
+        }
+
+        .result-top {
+            background: #0b1f3a;
+            color: white;
+            padding: 30px;
+            border-radius: 18px 18px 0 0;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .result-top small {
+            color: #8fc7f5;
+            letter-spacing: 2px;
+        }
+
+        .result-top h2 {
+            margin-top: 8px;
+            font-size: 28px;
+        }
+
+        .score {
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            border: 8px solid #4fa3d1;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .score-number {
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            background: #eaf1f7;
+            padding: 20px;
+        }
+
+        .result-card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+        }
+
+        .result-card h3 {
+            color: #18314d;
+            margin-bottom: 12px;
+        }
+
+        .result-card p {
+            color: #5f6e80;
+            line-height: 1.6;
+        }
+
+        #permissionList {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        #permissionList li {
+            padding: 8px 0;
+            border-bottom: 1px solid #edf0f3;
+            color: #40546b;
+        }
+
+        .warning {
+            background: #fff8e6;
+            color: #66552d;
+            padding: 18px;
+            border-radius: 0 0 18px 18px;
+            font-size: 13px;
+        }
+
+        /* TIPS */
+
+        .tips {
+            margin-top: 70px;
+        }
+
+        .tips-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .tips-heading p {
+            color: #1769aa;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .tips-heading h2 {
+            color: #10243e;
+            margin-top: 8px;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .tip {
+            background: white;
+            padding: 23px;
+            border-radius: 14px;
+            border: 1px solid #dfe7ef;
+        }
+
+        .tip-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .tip h3 {
+            color: #18314d;
+            margin-bottom: 10px;
+        }
+
+        .tip p {
+            color: #687588;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .tips-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .app-page {
+                padding: 45px 5%;
+            }
+
+            .permission-grid,
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .result-top {
+                padding: 25px;
+            }
+
+            .score {
+                width: 90px;
+                height: 90px;
+            }
+
+            .score-number {
+                font-size: 27px;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🛡️ CyberShield
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="analyzer.html">Analyzer</a>
+        <a href="digital-arrest.html">Digital Arrest</a>
+        <a href="app-safety.html">App Safety</a>
+        <a href="awareness.html">Awareness</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+<section class="app-page">
+
+<div class="app-container">
+
+
+    <!-- TITLE -->
+
+    <div class="section-heading">
+
+        <p>APPLICATION SECURITY</p>
+
+        <h1>Check App Permission Risks</h1>
+
+        <span>
+            Check whether an application's requested
+            permissions deserve closer attention.
+        </span>
+
+    </div>
+
+
+    <!-- INPUT -->
+
+    <div class="app-box">
+
+        <h2>Application Permission Checker</h2>
+
+        <label class="app-label" for="appName">
+            Application Name
+        </label>
+
+        <input
+            type="text"
+            id="appName"
+            placeholder="Example: Unknown Flashlight App"
+        >
+
+
+        <h3 class="permission-title">
+            Select Permissions Requested
+        </h3>
+
+
+        <div class="permission-grid">
+
+
+            <label class="permission-card">
+                <input type="checkbox" value="camera">
+                <span class="permission-icon">📷</span>
+                Camera
+            </label>
+
+
+            <label class="permission-card">
+                <input type="checkbox" value="microphone">
+                <span class="permission-icon">🎤</span>
+                Microphone
+            </label>
+
+
+            <label class="permission-card">
+                <input type="checkbox" value="location">
+                <span class="permission-icon">📍</span>
+                Location
+            </label>
+
+
+            <label class="permission-card">
+                <input type="checkbox" value="contacts">
+                <span class="permission-icon">👥</span>
+                Contacts
+            </label>
+
+
+            <label class="permission-card">
+                <input type="checkbox" value="sms">
+                <span class="permission-icon">💬</span>
+                SMS
+            </label>
+
+
+            <label class="permission-card">
+                <input type="checkbox" value="storage">
+                <span class="permission-icon">📁</span>
+                Files & Storage
+            </label>
+
+
+            <label class="permission-card">
+                <input type="checkbox" value="phone">
+                <span class="permission-icon">📞</span>
+                Phone
+            </label>
+
+
+            <label class="permission-card">
+                <input type="checkbox" value="notifications">
+                <span class="permission-icon">🔔</span>
+                Notifications
+            </label>
+
+        </div>
+
+
+        <div class="button-area">
+
+            <button id="checkButton">
+                🔍 Check App Risk
+            </button>
+
+            <button id="clearButton">
+                Clear
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div id="result">
+
+        <div class="result-top">
+
+            <div>
+                <small>APP SECURITY ANALYSIS</small>
+
+                <h2 id="riskLevel">
+                    —
+                </h2>
+            </div>
+
+            <div class="score">
+
+                <div
+                    class="score-number"
+                    id="score"
+                >
+                    0
+                </div>
+
+                <small>/100</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="result-grid">
+
+
+            <div class="result-card">
+
+                <h3>Application</h3>
+
+                <p id="resultName">
+                    —
+                </p>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>Detected Permissions</h3>
+
+                <ul id="permissionList"></ul>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>Security Advice</h3>
+
+                <p id="advice">
+                    —
+                </p>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>How to Stay Safe</h3>
+
+                <p>
+                    Review whether each permission is
+                    necessary for the application's
+                    actual purpose. Avoid giving sensitive
+                    permissions without a valid reason.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="warning">
+
+            <strong>Important:</strong>
+
+            This is an educational awareness tool.
+            A permission by itself does not prove that
+            an application is malicious.
+
+        </div>
+
+    </div>
+
+
+    <!-- TIPS -->
+
+    <div class="tips">
+
+        <div class="tips-heading">
+
+            <p>APP SAFETY</p>
+
+            <h2>
+                Before Installing an Unknown App
+            </h2>
+
+        </div>
+
+
+        <div class="tips-grid">
+
+
+            <div class="tip">
+
+                <div class="tip-icon">🔎</div>
+
+                <h3>Check the Source</h3>
+
+                <p>
+                    Verify where the application came
+                    from and check the developer details.
+                </p>
+
+            </div>
+
+
+            <div class="tip">
+
+                <div class="tip-icon">🔐</div>
+
+                <h3>Review Permissions</h3>
+
+                <p>
+                    Give only permissions that are
+                    necessary for the app's purpose.
+                </p>
+
+            </div>
+
+
+            <div class="tip">
+
+                <div class="tip-icon">⭐</div>
+
+                <h3>Check Reviews</h3>
+
+                <p>
+                    Look for unusual complaints or
+                    warnings before installing.
+                </p>
+
+            </div>
+
+
+            <div class="tip">
+
+                <div class="tip-icon">🔄</div>
+
+                <h3>Keep Updated</h3>
+
+                <p>
+                    Keep your device and applications
+                    updated with security fixes.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div>
+        🛡️ <strong>CyberShield</strong>
+    </div>
+
+    <p>
+        Cyber Security Awareness Platform
+    </p>
+
+    <p>
+        Educational Project • PO5 • PO6 • SDG 16
+    </p>
+
+</footer>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const checkButton =
+        document.getElementById("checkButton");
+
+    const clearButton =
+        document.getElementById("clearButton");
+
+
+    checkButton.addEventListener("click", function () {
+
+        const appName =
+            document.getElementById("appName").value.trim()
+            || "Unnamed Application";
+
+
+        const selected =
+            document.querySelectorAll(
+                ".permission-card input:checked"
+            );
+
+
+        let score = 0;
+
+        let permissions = [];
+
+
+        selected.forEach(function (item) {
+
+            if (item.value === "camera") {
+                score += 10;
+                permissions.push("📷 Camera access");
+            }
+
+            else if (item.value === "microphone") {
+                score += 15;
+                permissions.push("🎤 Microphone access");
+            }
+
+            else if (item.value === "location") {
+                score += 15;
+                permissions.push("📍 Location access");
+            }
+
+            else if (item.value === "contacts") {
+                score += 15;
+                permissions.push("👥 Contacts access");
+            }
+
+            else if (item.value === "sms") {
+                score += 20;
+                permissions.push("💬 SMS access");
+            }
+
+            else if (item.value === "storage") {
+                score += 10;
+                permissions.push("📁 File/Storage access");
+            }
+
+            else if (item.value === "phone") {
+                score += 15;
+                permissions.push("📞 Phone access");
+            }
+
+            else if (item.value === "notifications") {
+                score += 5;
+                permissions.push("🔔 Notification access");
+            }
+
+        });
+
+
+        /* Maximum score */
+
+        if (score > 100) {
+            score = 100;
+        }
+
+
+        /* Risk level */
+
+        let level;
+        let advice;
+
+
+        if (score >= 61) {
+
+            level = "HIGH PERMISSION RISK";
+
+            advice =
+                "Several sensitive permissions were selected. " +
+                "Review whether these permissions are genuinely " +
+                "necessary for the application's purpose.";
+
+        }
+
+        else if (score >= 31) {
+
+            level = "MEDIUM PERMISSION RISK";
+
+            advice =
+                "Review each permission carefully and allow " +
+                "only permissions that are necessary.";
+
+        }
+
+        else {
+
+            level = "LOW PERMISSION RISK";
+
+            advice =
+                "The selected permissions produced a lower " +
+                "predefined risk score. Continue checking " +
+                "the application's source, developer and purpose.";
+
+        }
+
+
+        /* Show result */
+
+        document.getElementById("score")
+            .textContent = score;
+
+
+        document.getElementById("riskLevel")
+            .textContent = level;
+
+
+        document.getElementById("resultName")
+            .textContent = appName;
+
+
+        document.getElementById("advice")
+            .textContent = advice;
+
+
+        /* Permission list */
+
+        const list =
+            document.getElementById("permissionList");
+
+
+        list.innerHTML = "";
+
+
+        if (permissions.length === 0) {
+
+            const li =
+                document.createElement("li");
+
+            li.textContent =
+                "No permissions selected.";
+
+            list.appendChild(li);
+
+        }
+
+        else {
+
+            permissions.forEach(function (permission) {
+
+                const li =
+                    document.createElement("li");
+
+                li.textContent =
+                    "✓ " + permission;
+
+                list.appendChild(li);
+
+            });
+
+        }
+
+
+        /* Display result */
+
+        document.getElementById("result")
+            .style.display = "block";
+
+
+        /* Scroll to result */
+
+        document.getElementById("result")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    });
+
+
+    /* CLEAR BUTTON */
+
+    clearButton.addEventListener("click", function () {
+
+        document.getElementById("appName")
+            .value = "";
+
+
+        document
+            .querySelectorAll(
+                ".permission-card input"
+            )
+            .forEach(function (checkbox) {
+
+                checkbox.checked = false;
+
+            });
+
+
+        document.getElementById("result")
+            .style.display = "none";
+
+    });
+
+});
+
+</script>
+
+
+</body>
+
+</html>

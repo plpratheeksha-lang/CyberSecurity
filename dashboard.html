@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberShield | Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f8fc;
+            color: #172b45;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            background: #0b1f3a;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #62c7ff;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 40px;
+            background: linear-gradient(135deg, #eaf5ff, #ffffff);
+        }
+
+        .hero small {
+            color: #1477ad;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 15px 0;
+            color: #10243e;
+        }
+
+        .hero p {
+            color: #65758a;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* DASHBOARD */
+
+        .dashboard {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            border: 1px solid #dce6ef;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 22px rgba(20, 45, 75, 0.06);
+        }
+
+        .stat-icon {
+            font-size: 30px;
+        }
+
+        .stat-card h3 {
+            margin: 15px 0 5px;
+            font-size: 30px;
+            color: #10243e;
+        }
+
+        .stat-card p {
+            margin: 0;
+            color: #687588;
+        }
+
+        /* CONTENT GRID */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .panel {
+            background: white;
+            border: 1px solid #dce6ef;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 8px 22px rgba(20, 45, 75, 0.06);
+        }
+
+        .panel h2 {
+            margin-top: 0;
+            color: #18314d;
+        }
+
+        /* SECURITY STATUS */
+
+        .security-status {
+            text-align: center;
+            padding: 25px;
+            border-radius: 12px;
+            background: #eef8f2;
+            border: 1px solid #cce8d6;
+        }
+
+        .security-status .icon {
+            font-size: 45px;
+        }
+
+        .security-status h3 {
+            color: #207044;
+            margin: 10px 0;
+        }
+
+        .security-status p {
+            color: #587061;
+        }
+
+        /* HISTORY */
+
+        .history {
+            margin-top: 30px;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid #e4ebf2;
+        }
+
+        .history-item:last-child {
+            border-bottom: none;
+        }
+
+        .history-text {
+            overflow: hidden;
+        }
+
+        .history-text strong {
+            display: block;
+            color: #243b55;
+        }
+
+        .history-text span {
+            color: #7b8897;
+            font-size: 13px;
+        }
+
+        .risk {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .high {
+            background: #ffe5e5;
+            color: #b42318;
+        }
+
+        .medium {
+            background: #fff2d6;
+            color: #9a6700;
+        }
+
+        .safe {
+            background: #e3f7e9;
+            color: #207044;
+        }
+
+        /* BUTTON */
+
+        .button-row {
+            margin-top: 25px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            border: none;
+            background: #1477ad;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #0d527f;
+        }
+
+        .clear-button {
+            background: #eef2f6;
+            color: #334e68;
+        }
+
+        .clear-button:hover {
+            background: #dce5ed;
+        }
+
+        /* TIPS */
+
+        .tips {
+            margin-top: 30px;
+        }
+
+        .tips ul {
+            padding-left: 20px;
+        }
+
+        .tips li {
+            margin-bottom: 12px;
+            color: #607086;
+            line-height: 1.5;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 70px;
+            background: #08182c;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer p {
+            color: #aebfd0;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+
+    <div class="logo">
+        🛡️ CyberShield
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="analyzer.html">Analyzer</a>
+        <a href="digital-arrest.html">Digital Arrest</a>
+        <a href="app-safety.html">App Safety</a>
+        <a href="awareness.html">Awareness</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <small>SECURITY DASHBOARD</small>
+
+    <h1>Cyber Risk Monitoring</h1>
+
+    <p>
+        Monitor your cybersecurity analysis results,
+        understand detected risks and improve your
+        digital safety awareness.
+    </p>
+
+</section>
+
+
+<!-- DASHBOARD -->
+
+<main class="dashboard">
+
+
+    <!-- STAT CARDS -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">🔍</div>
+
+            <h3 id="totalAnalyses">0</h3>
+
+            <p>Total Analyses</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">🚨</div>
+
+            <h3 id="highRisks">0</h3>
+
+            <p>High Risk</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">🟠</div>
+
+            <h3 id="mediumRisks">0</h3>
+
+            <p>Medium Risk</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">🟢</div>
+
+            <h3 id="safeResults">0</h3>
+
+            <p>Safe Results</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- TWO PANELS -->
+
+    <section class="content-grid">
+
+
+        <!-- SECURITY STATUS -->
+
+        <div class="panel">
+
+            <h2>🛡️ Security Status</h2>
+
+            <div class="security-status">
+
+                <div class="icon">🛡️</div>
+
+                <h3 id="statusTitle">
+                    Monitoring Active
+                </h3>
+
+                <p id="statusText">
+                    CyberShield is ready to analyze
+                    suspicious digital content.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT INFORMATION -->
+
+        <div class="panel">
+
+            <h2>📊 Platform Information</h2>
+
+            <p>
+                CyberShield analyzes suspicious content
+                using predefined cybersecurity indicators.
+            </p>
+
+            <ul>
+                <li>Phishing patterns</li>
+                <li>Suspicious URLs</li>
+                <li>High-risk keywords</li>
+                <li>Digital arrest indicators</li>
+                <li>Application permission risks</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- HISTORY -->
+
+    <section class="panel history">
+
+        <h2>🕒 Recent Analysis</h2>
+
+        <div id="historyList">
+
+            <p style="color:#687588;">
+                No analysis has been recorded yet.
+            </p>
+
+        </div>
+
+
+        <div class="button-row">
+
+            <a
+                href="analyzer.html"
+                class="button"
+                style="text-decoration:none;"
+            >
+                🔍 New Analysis
+            </a>
+
+            <button
+                class="button clear-button"
+                onclick="clearDashboard()"
+            >
+                Clear History
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SAFETY TIPS -->
+
+    <section class="panel tips">
+
+        <h2>💡 Cyber Safety Tips</h2>
+
+        <ul>
+
+            <li>
+                Never share OTPs, passwords or banking PINs
+                with unknown people.
+            </li>
+
+            <li>
+                Do not click links from unexpected messages.
+            </li>
+
+            <li>
+                Government officials do not normally demand
+                money through threatening video calls.
+            </li>
+
+            <li>
+                Review application permissions before
+                installing unfamiliar applications.
+            </li>
+
+            <li>
+                Verify suspicious information using official
+                sources before taking action.
+            </li>
+
+        </ul>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <strong>🛡️ CyberShield</strong>
+
+    <p>
+        Cyber Security Awareness Platform
+    </p>
+
+    <p>
+        Educational Project • PO5 • PO6 • SDG 16
+    </p>
+
+</footer>
+
+
+<script>
+
+    /*
+       Dashboard demonstration data.
+
+       This reads analysis records from browser
+       localStorage if your analyzer stores them.
+    */
+
+    function loadDashboard() {
+
+        let history = JSON.parse(
+            localStorage.getItem("cyberShieldHistory") || "[]"
+        );
+
+        let total = history.length;
+
+        let high = history.filter(
+            item => item.risk === "High"
+        ).length;
+
+        let medium = history.filter(
+            item => item.risk === "Medium"
+        ).length;
+
+        let safe = history.filter(
+            item => item.risk === "Safe"
+        ).length;
+
+
+        document.getElementById("totalAnalyses").textContent = total;
+
+        document.getElementById("highRisks").textContent = high;
+
+        document.getElementById("mediumRisks").textContent = medium;
+
+        document.getElementById("safeResults").textContent = safe;
+
+
+        let list = document.getElementById("historyList");
+
+
+        if (history.length === 0) {
+
+            list.innerHTML =
+                '<p style="color:#687588;">No analysis has been recorded yet.</p>';
+
+            return;
+        }
+
+
+        list.innerHTML = "";
+
+
+        history.slice(-8).reverse().forEach(item => {
+
+            let div = document.createElement("div");
+
+            div.className = "history-item";
+
+
+            let riskClass = "safe";
+
+            if (item.risk === "High") {
+                riskClass = "high";
+            }
+
+            if (item.risk === "Medium") {
+                riskClass = "medium";
+            }
+
+
+            div.innerHTML = `
+                <div class="history-text">
+                    <strong>${item.title || "Security Analysis"}</strong>
+                    <span>${item.time || "Recent analysis"}</span>
+                </div>
+
+                <span class="risk ${riskClass}">
+                    ${item.risk || "Safe"}
+                </span>
+            `;
+
+
+            list.appendChild(div);
+
+        });
+
+    }
+
+
+    function clearDashboard() {
+
+        if (
+            confirm(
+                "Are you sure you want to clear the analysis history?"
+            )
+        ) {
+
+            localStorage.removeItem("cyberShieldHistory");
+
+            loadDashboard();
+
+        }
+
+    }
+
+
+    loadDashboard();
+
+</script>
+
+
+</body>
+
+</html>

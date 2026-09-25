@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberShield | Security Awareness</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .awareness-page {
+            min-height: 100vh;
+            padding: 60px 7%;
+            background: linear-gradient(135deg, #eef5ff, #f8fbff);
+        }
+
+        .awareness-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .awareness-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .awareness-heading p {
+            color: #1769aa;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .awareness-heading h1 {
+            color: #10243e;
+            font-size: 42px;
+            margin: 10px 0;
+        }
+
+        .awareness-heading span {
+            color: #687588;
+            line-height: 1.6;
+        }
+
+        /* INTRO */
+
+        .intro-box {
+            background: #0b1f3a;
+            color: white;
+            padding: 35px;
+            border-radius: 18px;
+            margin-bottom: 40px;
+        }
+
+        .intro-box h2 {
+            margin-bottom: 15px;
+        }
+
+        .intro-box p {
+            color: #dceeff;
+            line-height: 1.7;
+        }
+
+        /* AWARENESS CARDS */
+
+        .awareness-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .awareness-card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid #dce5ef;
+            box-shadow: 0 8px 25px rgba(20,45,75,0.07);
+            transition: 0.2s;
+        }
+
+        .awareness-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px rgba(20,45,75,0.11);
+        }
+
+        .awareness-icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .awareness-card h3 {
+            color: #18314d;
+            margin-bottom: 12px;
+        }
+
+        .awareness-card p {
+            color: #687588;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .awareness-card ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .awareness-card li {
+            color: #40546b;
+            margin-bottom: 9px;
+            line-height: 1.5;
+        }
+
+        /* WARNING SIGNS */
+
+        .warning-section {
+            margin-top: 45px;
+            background: #fff8e8;
+            border: 1px solid #f1dfad;
+            padding: 30px;
+            border-radius: 16px;
+        }
+
+        .warning-section h2 {
+            color: #6d5317;
+            margin-bottom: 20px;
+        }
+
+        .warning-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .warning-item {
+            background: white;
+            padding: 15px;
+            border-radius: 9px;
+            color: #5c4b25;
+            border: 1px solid #eadfbf;
+        }
+
+        /* WHAT TO DO */
+
+        .action-section {
+            margin-top: 45px;
+            background: #eaf5ff;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #cfe4f7;
+        }
+
+        .action-section h2 {
+            color: #18314d;
+            margin-bottom: 20px;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .action-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #40546b;
+        }
+
+        .action-number {
+            display: block;
+            font-size: 25px;
+            font-weight: bold;
+            color: #1769aa;
+            margin-bottom: 8px;
+        }
+
+        /* QUIZ LINK */
+
+        .quiz-box {
+            margin-top: 45px;
+            padding: 35px;
+            background: linear-gradient(135deg, #1769aa, #0b1f3a);
+            color: white;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .quiz-box h2 {
+            margin-bottom: 10px;
+        }
+
+        .quiz-box p {
+            color: #dceeff;
+            line-height: 1.6;
+        }
+
+        .quiz-button {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 13px 24px;
+            background: white;
+            color: #1769aa;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .quiz-button:hover {
+            background: #edf5ff;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            .awareness-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .warning-list {
+                grid-template-columns: 1fr;
+            }
+
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .awareness-page {
+                padding: 40px 5%;
+            }
+
+            .awareness-heading h1 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        🛡️ CyberShield
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="analyzer.html">
+            Analyzer
+        </a>
+
+        <a href="digital-arrest.html">
+            Digital Arrest
+        </a>
+
+        <a href="app-safety.html">
+            App Safety
+        </a>
+
+        <a href="awareness.html">
+            Awareness
+        </a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- MAIN -->
+
+<main>
+
+<section class="awareness-page">
+
+<div class="awareness-container">
+
+
+    <!-- HEADING -->
+
+    <div class="awareness-heading">
+
+        <p>
+            CYBERSECURITY EDUCATION
+        </p>
+
+        <h1>
+            🛡️ Stay Safe Online
+        </h1>
+
+        <span>
+            Learn simple practices to identify suspicious
+            online activity and protect your personal information.
+        </span>
+
+    </div>
+
+
+
+    <!-- INTRO -->
+
+    <div class="intro-box">
+
+        <h2>
+            Why Cyber Awareness Matters
+        </h2>
+
+        <p>
+            Cyber scams often use urgency, fear, attractive
+            offers or fake authority to make people act
+            quickly. Learning to recognize these warning
+            signs can help users make safer decisions before
+            clicking links, sharing information or installing
+            applications.
+        </p>
+
+    </div>
+
+
+
+    <!-- AWARENESS TOPICS -->
+
+    <div class="awareness-grid">
+
+
+        <!-- PHISHING -->
+
+        <div class="awareness-card">
+
+            <div class="awareness-icon">
+                🎣
+            </div>
+
+            <h3>
+                Phishing Awareness
+            </h3>
+
+            <p>
+                Phishing attempts try to trick users into
+                revealing sensitive information or visiting
+                unsafe websites.
+            </p>
+
+            <ul>
+
+                <li>
+                    Check the sender before responding.
+                </li>
+
+                <li>
+                    Be careful with unexpected links.
+                </li>
+
+                <li>
+                    Look for suspicious or deceptive URLs.
+                </li>
+
+                <li>
+                    Never share OTPs or passwords.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- DIGITAL ARREST -->
+
+        <div class="awareness-card">
+
+            <div class="awareness-icon">
+                🚨
+            </div>
+
+            <h3>
+                Digital Arrest Scam
+            </h3>
+
+            <p>
+                Scammers may pretend to be police officers,
+                government officials or other authorities and
+                use fear and urgency.
+            </p>
+
+            <ul>
+
+                <li>
+                    Do not panic because of an unexpected call.
+                </li>
+
+                <li>
+                    Do not transfer money because of threats.
+                </li>
+
+                <li>
+                    Independently verify the identity.
+                </li>
+
+                <li>
+                    Do not share confidential information.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- APP SAFETY -->
+
+        <div class="awareness-card">
+
+            <div class="awareness-icon">
+                📱
+            </div>
+
+            <h3>
+                Malicious Application Safety
+            </h3>
+
+            <p>
+                Some applications may request permissions
+                that are unnecessary for their stated purpose.
+            </p>
+
+            <ul>
+
+                <li>
+                    Download applications from trusted sources.
+                </li>
+
+                <li>
+                    Review requested permissions.
+                </li>
+
+                <li>
+                    Avoid unknown APK files.
+                </li>
+
+                <li>
+                    Remove applications you do not trust.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- PASSWORD -->
+
+        <div class="awareness-card">
+
+            <div class="awareness-icon">
+                🔐
+            </div>
+
+            <h3>
+                Password & Account Safety
+            </h3>
+
+            <p>
+                Strong account security reduces the risk of
+                unauthorized access.
+            </p>
+
+            <ul>
+
+                <li>
+                    Use strong and unique passwords.
+                </li>
+
+                <li>
+                    Avoid reusing important passwords.
+                </li>
+
+                <li>
+                    Enable multi-factor authentication when available.
+                </li>
+
+                <li>
+                    Never share passwords with others.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- ONLINE PAYMENT -->
+
+        <div class="awareness-card">
+
+            <div class="awareness-icon">
+                💳
+            </div>
+
+            <h3>
+                Online Payment Safety
+            </h3>
+
+            <p>
+                Be cautious when receiving unexpected
+                payment requests or refund offers.
+            </p>
+
+            <ul>
+
+                <li>
+                    Verify the recipient before making a payment.
+                </li>
+
+                <li>
+                    Never share your UPI PIN or OTP.
+                </li>
+
+                <li>
+                    Be careful with unexpected QR codes.
+                </li>
+
+                <li>
+                    Verify refund and payment requests independently.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- SAFE BROWSING -->
+
+        <div class="awareness-card">
+
+            <div class="awareness-icon">
+                🌐
+            </div>
+
+            <h3>
+                Safe Browsing
+            </h3>
+
+            <p>
+                Safe browsing habits can help users avoid
+                deceptive websites and suspicious downloads.
+            </p>
+
+            <ul>
+
+                <li>
+                    Check website addresses carefully.
+                </li>
+
+                <li>
+                    Avoid suspicious pop-ups.
+                </li>
+
+                <li>
+                    Keep your browser updated.
+                </li>
+
+                <li>
+                    Do not download unknown files.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- WARNING SIGNS -->
+
+    <div class="warning-section">
+
+        <h2>
+            ⚠️ Common Warning Signs
+        </h2>
+
+        <div class="warning-list">
+
+            <div class="warning-item">
+                🚩 Unexpected urgent message
+            </div>
+
+            <div class="warning-item">
+                🚩 Threats of account blocking or arrest
+            </div>
+
+            <div class="warning-item">
+                🚩 Request for OTP or password
+            </div>
+
+            <div class="warning-item">
+                🚩 Request for immediate payment
+            </div>
+
+            <div class="warning-item">
+                🚩 Suspicious website address
+            </div>
+
+            <div class="warning-item">
+                🚩 Unknown application requesting excessive permissions
+            </div>
+
+            <div class="warning-item">
+                🚩 Unusually attractive offer or prize
+            </div>
+
+            <div class="warning-item">
+                🚩 Pressure to keep the conversation secret
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- WHAT TO DO -->
+
+    <div class="action-section">
+
+        <h2>
+            🛡️ What Should You Do?
+        </h2>
+
+        <div class="action-grid">
+
+
+            <div class="action-item">
+
+                <span class="action-number">
+                    01
+                </span>
+
+                <strong>
+                    STOP
+                </strong>
+
+                <p>
+                    Do not click, pay or share information immediately.
+                </p>
+
+            </div>
+
+
+            <div class="action-item">
+
+                <span class="action-number">
+                    02
+                </span>
+
+                <strong>
+                    VERIFY
+                </strong>
+
+                <p>
+                    Check the information using an official source.
+                </p>
+
+            </div>
+
+
+            <div class="action-item">
+
+                <span class="action-number">
+                    03
+                </span>
+
+                <strong>
+                    REPORT
+                </strong>
+
+                <p>
+                    Report suspicious activity through appropriate
+                    official channels.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- QUIZ -->
+
+    <div class="quiz-box">
+
+        <h2>
+            🧠 Test Your Cyber Awareness
+        </h2>
+
+        <p>
+            Think you know how to identify common cyber threats?
+            Take the CyberShield quiz and test your knowledge.
+        </p>
+
+        <a
+            href="quiz.html"
+            class="quiz-button"
+        >
+            Take Cyber Safety Quiz →
+        </a>
+
+    </div>
+
+
+</div>
+
+</section>
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        🛡️ <strong>CyberShield</strong>
+    </div>
+
+    <p>
+        Cyber Security Awareness Platform
+    </p>
+
+    <p>
+        Educational Project • PO5 • PO6 • SDG 16
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
